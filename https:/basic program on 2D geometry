@@ -1,0 +1,63 @@
+print("2D GEOMETRY !!! LETS GET STARTED")
+def slopeofline_passingtotwopoints():
+    inp1 = int(input("enter x1 = "))
+    inp2 = int(input("enter x2 = "))
+    inp3 = int(input("enter y1 = "))
+    inp4 = int(input("enter y2 = "))
+    slope = (inp4-inp3)/(inp2-inp1)
+    print(slope)
+
+def check_perpendicular():
+    inp1 = int(input("enter the first line scope  = "))
+    inp2 = int(input("enter the second line scope = "))
+    if inp2 == (-1)/inp1 :
+        print("lines are perpendicular")
+    else :
+        print("lines are not perpendicular")
+
+def eq_slope_point_fprm():
+    inp1 = int(input("enter slope of line = "))
+    inp2 = int(input("enter x1 = "))
+    inp3 = int(input("enter y1 = "))
+    x = "x"
+    y = "y"
+    print(f"y-{inp3} = {inp1}(x-{inp2})")
+
+
+def eq_two_point_form():
+    inp1 = int(input("enter x1 = "))
+    inp2 = int(input("enter x2 = "))
+    inp3 = int(input("enter y1 = "))
+    inp4 = int(input("enter y2 = "))
+    y1_minus_y2 = inp3 - inp4
+    x1_minus_x2 = inp2 - inp1
+    x = "x"
+    y = "y"
+    print(f"y - {inp3}\n________\nx - {inp1}\n \n \n =\n \n \n{y1_minus_y2}\n________\n{x1_minus_x2} ")
+
+def eq_slope_intercept():
+    inp1 = int(input("enter y intercept = "))
+    inp2 = int(input("enter the slope   = "))
+    x = "x"
+    print(f"{inp1} = {inp2}x + c")
+
+def eq_double_intercept():
+    inp1 = int(input("enter x intercept = "))
+    inp2 = int(input("enter y intercept = "))
+    print(f"x/{inp1} + y/{inp2} = 1")
+
+i = int(input("1] slope of line through two pt\n2] check lines are perpendicular \n3] eq of line by slope point form\n4] eq of line by two point form\n5] eq of line by slopeintercept form\n6] eq of line by double intercept form\ninput = "))
+if i == 1:
+    slopeofline_passingtotwopoints()
+elif i == 2:
+    check_perpendicular()
+elif i == 3:
+    eq_slope_point_fprm()
+elif i == 4:
+    eq_two_point_form()
+elif i == 5:
+    eq_slope_intercept()
+elif i == 6:
+    eq_double_intercept()
+else:
+    print("bhad me ja kuch bhi ibput mat buk ***")
