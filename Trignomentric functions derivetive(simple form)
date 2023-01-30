@@ -1,0 +1,234 @@
+# to print answer
+ans = "pata nai"
+def print_ans():
+    global ans
+    print(ans,end = ".")
+# to take input
+inp = input("enter the equation to find derivative \nENTER : ")
+
+# for constant functions
+def constant() :
+    if inp.isdigit():
+        global ans
+        ans = 0
+        print_ans()
+
+#for sin function
+def sin():
+    global inp
+    global ans
+    if "sin(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""	
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"cos({str})")
+            print_ans()
+            if ans != "cos(x)" :
+                inp = str
+                check_inp()
+            else :
+                pass
+
+# for cos function
+def cos():
+    global inp
+    global ans
+    if "cos(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"-sin({str})")
+            print_ans()
+            if ans != "-sin(x)":
+                inp = str
+                check_inp()
+            else :
+                pass
+
+
+# for tan function
+def tan():
+    global ans
+    global inp
+    if "tan(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""	
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"sec**2({str})")
+            print_ans()
+            if ans != "sec**2(x)" :
+                inp = str
+                check_inp()
+            else :
+                pass
+
+# for cot function
+def cot():
+   global ans
+   global inp
+   if "cot(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""	
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"-cosec**2({str})")
+            print_ans()
+            if ans != "-cosec**2(x)" :
+                inp = str
+                check_inp()
+            else :
+                pass
+
+# for cosec function
+def cosec():
+    global ans
+    global inp
+    if "cosec(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""	
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"-cosec({str})*cot({str})")
+            print_ans()
+            if ans != "-cosec(x)*cot({str})" :
+                inp = str
+                check_inp()
+            else :
+                pass
+
+# for sec function
+def sec():
+    global ans
+    global inp
+    if "cot(" in inp :
+        d = inp.find("(")
+        c = []
+        for i in range(d+1,len(inp)-1) :
+            c.append(inp[i])
+        str = ""	
+        for i in c  :
+            str = "".join(c)
+        if str.isdigit() :
+            ans = 0
+            print_ans()
+        elif not str.isdigit():
+            ans = (f"sec({str})*tan({str})")
+            print_ans()
+            if ans != "sec(x)*tan(x)" :
+                inp = str
+                check_inp()
+            else :
+                pass
+
+"""# for 1/x function
+def one_by_x() :
+    if "1/**1/2" in inp:
+        global ans
+        ans = "something"
+        print_ans()
+
+# for root functions
+def root_x() :
+    if "**1/2" in inp:
+	    global ans
+	    ans = "something"
+	    print_ans()
+
+# for constant ** x functions
+def constant_race_to() :
+    if "a**" in inp :
+	    w = inp.find("**")
+	    for i in range(0,w):
+		    global ans
+		    ans = ans + inp[i]
+	    ans = inp + "." +"log" + (ans)
+	    print_ans()
+
+# for x**n function
+def x_race_to() :    
+    if "**" in inp:
+	    ans = "nx**n-1"
+	    print_ans()
+  	
+# for logarithemic functions	
+def log() :
+    if "log" in inp :
+        global ans
+        ans = "1/x"
+        print_ans()
+
+# for exponential functions	
+def e_ract_to() :
+    if "e**" in inp :
+        global ans
+        ans = "e**"
+        print_ans()"""
+	
+# for nx function
+def nx() :
+    if "x" in inp :
+	    q = inp.find("x")
+	    global ans
+	    ans = ""
+	    for  i in range(0,q):
+		    ans = ans+inp[i]
+	    print_ans()
+
+def check_inp():
+    if "sin(" in inp :
+        sin()
+    elif "cos(" in inp :
+        cos()
+    elif "tan(" in inp :
+        tan()
+    elif "cot(" in inp :
+        cot()
+    elif "sec(" in inp :
+        sec()
+    elif "cosec(" in inp :
+        cosec()
+    elif "x" not in inp :
+        constant()
+    elif "x" in inp :
+        nx()
+    else:
+        print("sorry we cant solve ! ")
+check_inp()
