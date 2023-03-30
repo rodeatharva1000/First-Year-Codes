@@ -32,8 +32,8 @@ class Derivative :
     
     # PRINTING ANSWER
     def print_ans(self) :
-        print(self.ans, end = ".") 
-        # file code
+        print(self.ans, end = " ") 
+  
     
     # REMOVING MINUS 
     def remove_minus(self) :
@@ -46,7 +46,7 @@ class Derivative :
             self.ans = count_minus*"(-)"
             self.print_ans() 
     
-    # file code
+
     
     # CHECKING INPUT (CONSIDERING BOTH CLASSES)
     def check_inp(self) :
@@ -382,8 +382,8 @@ class Catagory :
     
     # PRINTING MAIN ANSWER
     def print_main_ans(self) :
-        print(self.main_ans , end = ".")
-        # file code
+        print(self.main_ans , end = " ")
+       
     
     # FOR SPECIAL ANSWER OF DIVIDION
     def print_main_division_ans(self) : 
