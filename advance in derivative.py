@@ -423,8 +423,6 @@ class Catagory :
             self.product()  
         elif ")/" in self.main_inp : 
             self.division()  
-        elif "/" in self.main_inp :
-            obj = Derivative(self.main_inp) 
         elif ")-" in self.main_inp :
             self.minus()
         else :
