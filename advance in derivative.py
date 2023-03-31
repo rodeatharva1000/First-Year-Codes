@@ -410,8 +410,10 @@ class Catagory :
     # CLASS CONSTRUCTOR FOR Catagory CLASS
     def __init__(self) : 
         print("0000000000[ WELCOME TO SOLVE@DERIVATIVE ]0000000000")
-        self.main_inp = input("1 } Enter The Function To Find Derivative ( limitaion till u and v )\n\n2 } Perfectly work for chain rule\n\n3 } Input according to the input methods is mendetary\n\n4 } Read instructions before using\n\n5 } Try provided examples to learn more about input methods \n\n\n  Enter the function : ")
+        self.main_inp = input("1 } Enter The Function To Find Derivative ( limitaion till u and v )\n\n2 } Perfectly work for chain rule\n\n3 } Input according to the input methods is mendetary\n\n4 } Read instructions before using\n\n5 } Try provided examples to learn more about input methods \n\n\n Enter the function : ")
         self.main_inp = self.main_inp.replace(" ","")
+        print("")
+        print(f" (d/dx) of {self.main_inp} is ")
         self.check_main_inp()
     
     
@@ -422,7 +424,7 @@ class Catagory :
         elif "*" in self.main_inp :
             self.product()  
         elif ")/" in self.main_inp : 
-            self.division()  
+            self.division()   
         elif ")-" in self.main_inp :
             self.minus()
         else :
