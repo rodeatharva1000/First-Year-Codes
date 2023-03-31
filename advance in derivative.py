@@ -64,6 +64,9 @@ class Derivative :
             self.print_ans()
         if "." in self.inp :
             self.seperate_constant()
+        if "x" not in self.inp :
+            self.ans = "0"
+            self.print_ans()
         elif self.inp == "-" :
             pass
         elif self.inp == "/" :
