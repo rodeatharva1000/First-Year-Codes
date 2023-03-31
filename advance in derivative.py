@@ -503,10 +503,10 @@ class Catagory :
             elif object == 4 :
                 obj = Derivative(division_list[object])
             elif object == 5 :
-                print("  ]", end = "" )
+                print("  ] } ", end = "" )
                 obj = Derivative(division_list[object])
             elif object == 0 :
-                print("[  ", end = "" )
+                print(" { [  ", end = "" )
                 self.main_ans = division_list[object]
                 self.print_main_ans()
             elif object == 3 :
