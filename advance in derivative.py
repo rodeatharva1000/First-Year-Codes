@@ -455,6 +455,7 @@ class Catagory :
     
     # CLASS CONSTRUCTOR FOR Catagory CLASS
     def __init__(self) : 
+        print("-------------------------------------------------")
         self.main_inp = input("Enter the function : ")
         self.main_inp = self.main_inp.replace(" ","")
         self.main_inp = self.main_inp.lower()
