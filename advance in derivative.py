@@ -64,36 +64,77 @@ class Derivative :
             self.print_ans()
         if "." in self.inp :
             self.seperate_constant()
-        if "x" not in self.inp :
-            self.ans = "0"
-            self.print_ans()
         elif self.inp == "-" :
             pass
         elif self.inp == "/" :
             self.ans = "/"
             self.print_ans()
         elif self.inp.startswith("sin(") :
-            self.sin()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.sin()
         elif self.inp.startswith("cos(") :
-            self.cos()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cos()
         elif self.inp.startswith("tan(") :
-            self.tan()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.tan()
         elif self.inp.startswith("cot(") :
-            self.cot()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cot()
         elif self.inp.startswith("sec(") :
-            self.sec()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.sec()
         elif self.inp.startswith("cosec(") :
-            self.cosec()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cosec()
         elif self.inp.startswith("log(") :
-            self.log()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.log()
         elif self.inp.startswith("e^") :
-            self.exponential()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.exponential()
         elif "/" and ")^" in self.inp : 
-            self.twwo_in()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.twwo_in()
         elif "/" in self.inp :
-            self.one_by_x()
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.one_by_x()
         elif ")^" in self.inp :
-            self.x_race_to_n()   
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.x_race_to_n()   
         elif not self.inp.isdigit() :
             self.nx()
         elif self.inp.isdigit() :
@@ -272,8 +313,7 @@ class Derivative :
         str = self.inp.replace("x","(1)")
         self.ans = str
         self.print_ans()
-        
-        
+         
         
     # ABOUT CONSTANT
     def constant(self) :
@@ -402,23 +442,26 @@ class Catagory :
     main_inp = None
     main_ans = None 
     
-    # PRINTING MAIN ANSWER
+   
+     # PRINTING MAIN ANSWER
     def print_main_ans(self) :
         print(self.main_ans , end = " ")
+    
     
     # FOR SPECIAL ANSWER OF DIVIDION
     def print_main_division_ans(self) : 
         print(f"[({self.main_ans})^2]")
     
+    
     # CLASS CONSTRUCTOR FOR Catagory CLASS
     def __init__(self) : 
-        print("0000000000[ WELCOME TO SOLVE@DERIVATIVE ]0000000000")
-        self.main_inp = input("1 } Enter The Function To Find Derivative ( limitaion till u and v )\n\n2 } Perfectly work for chain rule\n\n3 } Input according to the input methods is mendetary\n\n4 } Read instructions before using\n\n5 } Try provided examples to learn more about input methods \n\n\n Enter the function : ")
+        self.main_inp = input("Enter the function : ")
         self.main_inp = self.main_inp.replace(" ","")
         self.main_inp = self.main_inp.lower()
         print("")
         print(f" (d/dx) of {self.main_inp} is ")
         self.check_main_inp()
+    
     
     
     # CHECKING MAIN INPUT
@@ -434,6 +477,7 @@ class Catagory :
         else :
             obj = Derivative(self.main_inp)
 
+    
     # FUNCTION OF PLUS
     def plus(self) :
         plus_list = self.main_inp.split("+")
@@ -446,6 +490,7 @@ class Catagory :
             obj = Derivative(plus_list[object])
         print("  ]", end = "" )
 
+    
     # FUNCTION OF MINUS
     def minus(self) : 
         if "-" in self.main_inp :
@@ -470,6 +515,7 @@ class Catagory :
         print("  ]", end = "" )
     
     
+    
     # FUNCTION OF PRODUCT    
     def product(self) : 
 
@@ -489,6 +535,7 @@ class Catagory :
         
        
 
+    
     # FUNCTION OF DIVISION
     def division(self) :
         self.main_inp = self.main_inp.replace(")/","))/")
@@ -500,6 +547,8 @@ class Catagory :
         division_list.append("/")
         division_list.append(division_list[0])
 
+        
+        
         # FOR CREATING OBJECT ACCORDING TO LIST
         for object in range(0,len(division_list)) : 
             if object == 1 :
@@ -523,7 +572,12 @@ class Catagory :
                 self.print_main_division_ans()
 
 
-obj = Catagory()
+print("0000000000[ WELCOME TO SOLVE@DERIVATIVE ]0000000000 \n1 } Enter The Function To Find Derivative ( limitaion till u and v )\n\n2 } Perfectly work for chain rule\n\n3 } Input according to the input methods is mendetary\n\n4 } Read instructions before using\n\n5 } Try provided examples to learn more about input methods \n")
+
+
+while True :
+    print(2*("\n"))
+    obj = Catagory()
 
 
 # EXAMPLES ON CATAGORIES :
@@ -544,7 +598,7 @@ obj = Catagory()
 # language - python
 
 # release : 30/03/2023
-# last update : 31/03/23
+# last update : 16/04/23
 
 # Developer - @ Rode Atharva Mahesh | on windows os
 
