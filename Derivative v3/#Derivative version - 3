@@ -43,7 +43,7 @@ class Derivative :
     def __init__(self,catagory_inp) :
             self.inp = catagory_inp
             if self.inp == "-" :
-                self.ans = " ] - [ "
+                self.ans = "] - ["
                 self.print_ans()
             else :
                 self.myfind(self.inp)
@@ -98,38 +98,38 @@ class Derivative :
             secondary_inp = secondary_inp + variable[item]
         
         if "+" in secondary_inp :
-            ans_property("{ [")
+            ans_property("(")
             self.inp = self.inp.replace(secondary_inp,"x") 
             self.check_inp()
             change_insider(secondary_inp) 
-            ans_property("] }")
+            ans_property(")")
             secondary_inp = secondary_inp.replace("(","[")
             secondary_inp = secondary_inp.replace(")","]") 
             obj = Catagory(secondary_inp)
         elif "-" in secondary_inp :
-            ans_property("{ [")
+            ans_property("(")
             self.inp = self.inp.replace(secondary_inp,"x") 
             self.check_inp() 
             change_insider(secondary_inp)
-            ans_property("] }")
+            ans_property(")")
             secondary_inp = secondary_inp.replace("(","[")
             secondary_inp = secondary_inp.replace(")","]")
             obj = Catagory(secondary_inp)
         elif "*" in secondary_inp :
-            ans_property("{ [")
+            ans_property("(")
             self.inp = self.inp.replace(secondary_inp,"x") 
             self.check_inp() 
             change_insider(secondary_inp)
-            ans_property("] }")
+            ans_property(")")
             secondary_inp = secondary_inp.replace("(","[")
             secondary_inp = secondary_inp.replace(")","]")
             obj = Catagory(secondary_inp)
         elif "/" in secondary_inp :
-            ans_property("{ [")
+            ans_property("(")
             self.inp = self.inp.replace(secondary_inp,"x") 
             self.check_inp() 
             change_insider(secondary_inp)
-            ans_property("] }")
+            ans_property(")")
             secondary_inp = secondary_inp.replace("(","[")
             secondary_inp = secondary_inp.replace(")","]")
             obj = Catagory(secondary_inp)
@@ -140,7 +140,7 @@ class Derivative :
     # CHECKING INPUT (CONSIDERING BOTH CLASSES)
     def check_inp(self) :
         if self.inp == "+" :
-            self.ans = " ] + [ "
+            self.ans = "] + ["
             self.print_ans()
         
         if "." in self.inp :
@@ -194,7 +194,49 @@ class Derivative :
                 self.print_ans()
             else :
                 self.cosec()
+            
+        elif self.inp.startswith("sin^[-1]") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.sin_inv()
+                
+        elif self.inp.startswith("cos^[-1]") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cos_inv()
+                
+        elif self.inp.startswith("tan^[-1]") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.tan_inv()
+                
+        elif self.inp.startswith("cot^[-1][") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cot_inv()
+                
+        elif self.inp.startswith("sec^[-1]") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.sec_inv()       
         
+        elif self.inp.startswith("cosec^[-1]") :
+            if "x" not in self.inp :
+                self.ans = "0"
+                self.print_ans()
+            else :
+                self.cosec_inv()
+               
         elif self.inp.startswith("log[") :
             if "x" not in self.inp :
                 self.ans = "0"
@@ -387,6 +429,161 @@ class Derivative :
                 pass
     
 # example : cosec(tan(90x))   
+
+
+    # SININV(TRIGO) FUNCTION
+    def sin_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"1/[1-({str})^2]^(1/2)")
+            self.print_ans()
+            if self.ans != "1/[1-(x)^2]^(1/2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                
+
+ # example : sin^(-1)(tan(3x))
+                
+    
+    # COSINV(TRIGO) FUNCTION
+    def cos_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"-1/[1-({str})^2]^(1/2)")
+            self.print_ans()
+            if self.ans != "-1/[1-(x)^2]^(1/2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                
+                
+
+ # example : cos^(-3)(tan(4x))
+                
+                
+     # TANINV(TRIGO) FUNCTION 
+    def tan_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"1/1+({str})^(2)")
+            self.print_ans()
+            if self.ans != "1/1+(x)^(2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                          
+
+ # example : tan^(-1)(cot(99x))
+ 
+ 
+                
+    # COTINV(TRIGO) FUNCTION
+    def cot_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"-1/1+({str})^(2)")
+            self.print_ans()
+            if self.ans != "-1/1+(x)^(2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                
+
+ # example : cot^(-1)(sec(7x))
+                
+             
+    # SECINV(TRIGO) FUNCTION
+    def sec_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"1/({str})[({str})^(2)-1]^(1/2)")
+            self.print_ans()
+            if self.ans != "1/(x)[(x)^(2)-1]^(1/2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                
+                
+
+ # example : sec^(-1)(log(3x))
+                
+                
+    # COSECINV(TRIGO) FUNCTION
+    def cosec_inv(self) :
+        find = self.inp.find("^[-1][")
+        list = []
+        for i in range(find+6,len(self.inp)-1) :
+            list.append(self.inp[i])
+        str = ""	
+        for i in list  :
+            str = "".join(list)
+        if str.isdigit() :
+            self.ans = 0
+            self.print_ans()
+        elif not str.isdigit():
+            self.ans = (f"-1/({str})[({str})^(2)-1]^(1/2)")
+            self.print_ans()
+            if self.ans != "-1/(x)[(x)^(2)-1]^(1/2)" :
+                self.inp = str
+                self.check_inp()
+            else :
+                pass
+                
+                
+
+ # example : cosec^(-1)(sin(cos(9x)))
+    
     
     
     # LOG FUNCTION
@@ -591,10 +788,10 @@ class Catagory :
         plus_list[1] , plus_list[2] = plus_list[2] , plus_list[1]
         
         
-        ans_property("[")
+        ans_property("(")
         for object in range(0,len(plus_list)) :
             obj = Derivative(plus_list[object])
-        ans_property("]")
+        ans_property(")")
 
     
     # FUNCTION OF MINUS
@@ -616,10 +813,10 @@ class Catagory :
         minus_list.append("-")
         minus_list[1] , minus_list[2] = minus_list[2] , minus_list[1]
 
-        ans_property("[")
+        ans_property("(")
         for object in range(0,len(minus_list)) :
             obj = Derivative(minus_list[object])
-        ans_property("]")
+        ans_property(")")
     
     
     
@@ -631,14 +828,14 @@ class Catagory :
         product_list.append(product_list[0])
         product_list.append(product_list[1])
         
-        ans_property("[")
+        ans_property("(")
         for object in range(0,len(product_list)) :   
             if object % 2 == 0 :
                 obj = Derivative(product_list[object])
             else :
                 self.main_ans = product_list[object]
                 self.print_main_ans() 
-        ans_property("]")     
+        ans_property(")")     
         
        
 
@@ -666,10 +863,10 @@ class Catagory :
             elif object == 4 :
                 obj = Derivative(division_list[object])
             elif object == 5 :
-                ans_property(" ]}") 
+                ans_property(")]}") 
                 obj = Derivative(division_list[object])
             elif object == 0 :
-                ans_property("{[ ")
+                ans_property("{[(")
                 self.main_ans = division_list[object]
                 self.print_main_ans()
             elif object == 3 :
