@@ -1,6 +1,8 @@
 
 # PYTHON PROJECT
 
+#____________________________________________________
+
 # DERIVATIVE ADVANCE PROGRAM IN PYTHON (version : 4.0.0)
 
 """1] putting currect number and type of of bracket in the proper sequence is the heart of this program 
@@ -8,15 +10,17 @@
    3] input should be in the form of currect input method
    4] the examples are given for this refrence purpose"""
 
-
+#____________________________________________________
 
 """i also uploaded this program at github
    check my python reposetary at github"""
 
-
+#____________________________________________________
 # my github link : https://github.com/rodeatharva1000
+#____________________________________________________
+#____________________________________________________
 
-
+# IMPORTING COLORMA FOR OUTPUT COLOURS
 from colorama import Fore, Back, Style
 
 
@@ -35,7 +39,7 @@ def change_insider(to) :
    global the_ans_string
    the_ans_string = the_ans_string.replace("[x]",f"[{to}]")
    
-
+#____________________________________________________
 
 # DEFINING THE MAIN CLASS
 class Derivative :
@@ -48,7 +52,7 @@ class Derivative :
     def __init__(self,catagory_inp) :
             self.inp = catagory_inp
             if self.inp == "-" :
-                self.ans = Fore.BLUE+"] - ["+Style.RESET_ALL
+                self.ans = Fore.BLUE+")-("+Style.RESET_ALL
                 self.print_ans()
             else :
                 self.check_inp()
@@ -157,7 +161,7 @@ class Derivative :
             secondary_inp = secondary_inp.replace("(","[")
             secondary_inp = secondary_inp.replace(")","]")
             obj = Catagory(secondary_inp)
-        elif ")*" in secondary_inp :
+        elif ")*" in secondary_inp : 
             ans_property(Fore.GREEN+"("+Style.RESET_ALL)
             self.inp = self.inp.replace(secondary_inp,"x") 
             self.check_inp() 
@@ -191,7 +195,7 @@ class Derivative :
         self.seperate_constant()
         
         if self.inp == "+" :
-            self.ans = Fore.BLUE+"] + ["+Style.RESET_ALL
+            self.ans = Fore.BLUE+")+("+Style.RESET_ALL
             self.print_ans()
                   
         elif self.inp == "/" :
@@ -821,7 +825,11 @@ class Derivative :
             self.print_ans()
 
         elif not str.isdigit() : 
-            self.ans = (f"{str_second}.{str}^{int(str_second)-1}")
+            try : 
+                self.ans = (f"{str_second}.{str}^{int(str_second)-1}")
+            except :
+                self.ans = (f"{str_second}.{str}^({str_second})-1")
+                
             self.print_ans()
             if "[x]^" not in self.inp :
                 self.inp = str
@@ -830,6 +838,9 @@ class Derivative :
                 pass         
 
 # example : (sin(cos(90x)))^(67)
+
+
+#____________________________________________________
 
 
 
@@ -887,10 +898,10 @@ class Catagory :
         plus_list[1] , plus_list[2] = plus_list[2] , plus_list[1]
         
         
-        ans_property(Fore.BLUE+"["+Style.RESET_ALL)
+        ans_property(Fore.BLUE+"("+Style.RESET_ALL)
         for object in range(0,len(plus_list)) :
             obj = Derivative(plus_list[object])
-        ans_property(Fore.BLUE+"]"+Style.RESET_ALL)
+        ans_property(Fore.BLUE+")"+Style.RESET_ALL)
 
     
     # FUNCTION OF MINUS
@@ -907,10 +918,10 @@ class Catagory :
         minus_list.append("-")
         minus_list[1] , minus_list[2] = minus_list[2] , minus_list[1]
 
-        ans_property(Fore.BLUE+"["+Style.RESET_ALL)
+        ans_property(Fore.BLUE+"("+Style.RESET_ALL)
         for object in range(0,len(minus_list)) :
             obj = Derivative(minus_list[object])
-        ans_property(Fore.BLUE+"]"+Style.RESET_ALL)
+        ans_property(Fore.BLUE+")"+Style.RESET_ALL)
         
     
     
@@ -960,12 +971,13 @@ class Catagory :
             elif object == 4 :
                 obj = Derivative(division_list[object])
             elif object == 5 :
-                ans_property(Fore.BLUE+"]"+Style.RESET_ALL) 
-                ans_property(Fore.RED+"}"+Style.RESET_ALL) 
+                ans_property(Fore.BLUE+")"+Style.RESET_ALL) 
+                ans_property(Fore.YELLOW+"]"+Style.RESET_ALL)  
                 obj = Derivative(division_list[object])
             elif object == 0 :
                 ans_property(Fore.RED+"{"+Style.RESET_ALL)
-                ans_property(Fore.BLUE+"["+Style.RESET_ALL) 
+                ans_property(Fore.YELLOW+"["+Style.RESET_ALL)
+                ans_property(Fore.BLUE+"("+Style.RESET_ALL) 
                 self.main_ans = division_list[object]
                 self.print_main_ans()
             elif object == 3 :
@@ -974,18 +986,21 @@ class Catagory :
             elif object == 6 :
                 self.main_ans = division_list[object] 
                 self.print_main_division_ans()
+                ans_property(Fore.RED+"}"+Style.RESET_ALL) 
+                
+                
+#____________________________________________________
 
 print(Fore.BLUE+"version : 4*",Style.RESET_ALL)
 print(Fore.RED+"# Fundamental Calculus(I1912)",Style.RESET_ALL)
-print(Fore.GREEN+"               [ ADVANCE IN DERIVATIVES ]"+Style.RESET_ALL)
-print(Fore.YELLOW+"\n 1 } Enter The Function To Find Derivative ( limitaion till u and v )\n 2 } For Outer Function Use [ ] \n 3 } For Inner Function Use ( ) \n 4 } Use . To Multiply Constant \n 5 } Use ^ to show powers \n 6 } Input According To The Input Methods Is Mendetary\n 7 } Read Instructions Before Using\n 8 } Try Provided Examples To Learn More About Input Methods \n"+Style.RESET_ALL)
+print(Fore.RED+"               [ ADVANCE IN DERIVATIVES ]"+Style.RESET_ALL)
+print(Fore.GREEN+"\n 1 } Enter The Function To Find Derivative ( limitaion till u and v )\n 2 } For Outer Function Use [ ] \n 3 } For Inner Function Use ( ) \n 4 } Use . To Multiply Constant \n 5 } Use ^ to show powers \n 6 } Input According To The Input Methods Is Mendetary\n 7 } Read Instructions Before Using\n 8 } Try Provided Examples To Learn More About Input Methods \n"+Style.RESET_ALL)
 
-print(Fore.GREEN+" Ex : -"+Style.RESET_ALL)
+print(Fore.RED+" Ex : -"+Style.RESET_ALL)
 
-print(" 1 ] sin(2x) \n 2 ] 58.sin(log(3x)) \n 3 ] log(sec(32x))+tan(5x) \n 4 ] tan[sec(6x)-33.sin(x)] \n 5 ] sec[23.tan(3x)-tan(3x)]-log[4x]")
+print(Fore.YELLOW+" 1 ] sin(2x) \n 2 ] 58.sin(log(3x)) \n 3 ] log(sec(32x))+tan(5x) \n 4 ] tan[sec(6x)-33.sin(x)] \n 5 ] sec[23.tan(3x)-tan(3x)]-log[4x]"+Style.RESET_ALL)
 
-
-
+#____________________________________________________
 
 
 # RUNNING LOOP TILL INFINITY
@@ -1002,6 +1017,8 @@ while True :
     print("\n")
     print(" "+the_ans_string)
     the_ans_string = ""
+    
+#____________________________________________________
 
 
 # EXAMPLES ON CATAGORIES :
@@ -1014,6 +1031,18 @@ while True :
 
 # catagory (/) : cosec(90x)/sec(90x)
 
+#____________________________________________________
+
+# WHOLE PROGRAM EXAMPLES
+
+
+#1 ] sin(2x) 
+#2 ] 58.sin(log(3x)) 
+#3 ] log(sec(32x))+tan(5x) 
+#4 ] tan[sec(6x)-33.sin(x)] 
+#5 ] sec[23.tan(3x)-tan(3x)]-log[4x]
+
+#____________________________________________________
 
 # program catagory - maths\calculus\derivatives
 
@@ -1023,13 +1052,21 @@ while True :
 
 # language - python
 
-# VERSION THREE
+#____________________________________________________
+
+# VERSION FOUR
 # release : 05/05/2023
 # last update : lets see
 # three level two function dervatives
+
+#____________________________________________________
+
 
 # Developed and maintained by :- @ Rode Atharva Mahesh 
 
 # OS : on windows os
 
 # for any queery  :  rodeatharva2@gmail.com
+
+#____________________________________________________
+#____________________________________________________
