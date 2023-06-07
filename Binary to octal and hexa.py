@@ -57,9 +57,8 @@ def octal() :
     print(ans,"]")     
         
      
-    
-hexa_val = False
-octal_val = False
+ 
+
 
 if inp[1] == "(8)" :
     hexa()
