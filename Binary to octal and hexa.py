@@ -19,16 +19,15 @@ def hexa() :
     sec_length = len(str[1])
     
     for item in range(0,pri_length) :
-        print(f"{pri_str[item]}*(8)^({pri_length-1})",end = "+")
+        print(f"{pri_str[item]}*(8)^({pri_length-1})",end = "*")
         pri_length = pri_length - 1
        
+    print("+")
     
     for item in range(0,sec_length) :
-        items = -(item+1)
-        
-    ans = (f"{sec_str[item]}*(8)^({items})+")      
-    ans = ans[0:len(ans)-1] 
-    print(ans,"]")
+        items = -(item+1) 
+        print(f"{sec_str[item]}*(8)^({items})",end = "")      
+    print("]")
     
       
     
@@ -46,20 +45,17 @@ def octal() :
     sec_length = len(str[1])
     
     for item in range(0,pri_length) :
-        print(f"{pri_str[item]}*(16)^({pri_length-1})",end = "+")
+        print(f"{pri_str[item]}*(16)^({pri_length-1})",end = "*")
         pri_length = pri_length - 1
        
+    print("+")
     
     for item in range(0,sec_length) :
-        items = -(item+1)
-        
-    ans = (f"{sec_str[item]}*(8)^({items})+")      
-    ans = ans[0:len(ans)-1] 
-    print(ans,"]")     
+        items = -(item+1)     
+        print(f"{sec_str[item]}*(8)^({items})",end = "")      
+    print("]")     
         
      
- 
-
 
 if inp[1] == "(8)" :
     hexa()
@@ -70,6 +66,5 @@ elif inp[1] == "(16)" :
 
     
 
-      
-     
+    
 
